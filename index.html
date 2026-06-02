@@ -1,0 +1,467 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniela Simon | Portfólio</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">   
+      
+    <link rel="preconnect" href="https://fonts.googleapis.com">   
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>   
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">   
+   
+    <style>   
+        :root {   
+            --vinho-fundo: #14040b;         
+            --vinho-card: #290916;            
+            --vinho-marinho: #380116;       
+            --vinho-detalhe: #53122c;       
+            --vinho-hover: #3e0e21;         
+            --texto-claro: #f1f5f9;       
+            --texto-mutado: #cbd5e1;      
+            --texto-suporte: #94a3b8;      
+            --texto-contato-legivel: #b4c2d3; 
+            --fonte-titulo: 'Playfair Display', Georgia, serif;   
+            --fonte-corpo: 'Inter', sans-serif;   
+        }   
+   
+        body {   
+            background-color: var(--vinho-fundo);   
+            color: var(--texto-claro);   
+            font-family: var(--fonte-corpo);   
+            overflow-x: hidden;   
+            scroll-behavior: smooth;   
+            position: relative;   
+        }   
+   
+        body::before {   
+            content: "";   
+            position: fixed;   
+            top: 0; left: 0; width: 100vw; height: 100vh;   
+            opacity: 0.02;   
+            pointer-events: none;   
+            z-index: 9999;   
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");   
+        }   
+   
+        h1, h2, h3, .font-serif {   
+            font-family: var(--fonte-titulo);   
+            letter-spacing: -0.01em;   
+        }   
+   
+        @keyframes revealUp {   
+            from { opacity: 0; transform: translateY(20px); }   
+            to { opacity: 1; transform: translateY(0); }   
+        }   
+   
+        .animar { animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }   
+        .atraso-1 { animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards; }   
+        .atraso-2 { animation-delay: 0.4s; opacity: 0; animation-fill-mode: forwards; }   
+   
+   
+        .navbar {   
+            background-color: rgba(20, 4, 11, 0.9) !important;   
+            backdrop-filter: blur(12px);   
+            border-bottom: 1px solid rgba(83, 18, 44, 0.3);   
+            padding: 1rem 0;   
+        }   
+   
+        .navbar-brand {   
+            font-family: var(--fonte-titulo);   
+            font-weight: 600;   
+            color: var(--texto-claro) !important;   
+            font-size: 1.1rem;   
+            letter-spacing: 2px;   
+        }   
+   
+        .nav-link {   
+            color: var(--texto-suporte) !important;   
+            font-size: 0.8rem;   
+            text-transform: uppercase;   
+            letter-spacing: 0.15em;   
+            transition: color 0.3s ease;   
+            margin-left: 1.5rem;   
+        }   
+   
+        .nav-link:hover, .nav-link.active { color: var(--texto-claro) !important; }   
+        .navbar-toggler { border: none; padding: 0; }   
+        .navbar-toggler:focus { box-shadow: none; }   
+   
+        #hero {   
+            min-height: 100vh;   
+            display: flex;   
+            align-items: center;   
+            position: relative;   
+            background: radial-gradient(circle at 85% 40%, var(--vinho-marinho) 0%, transparent 70%);   
+        }   
+   
+        .hero-subtitulo {   
+            font-size: 0.8rem;   
+            text-transform: uppercase;   
+            letter-spacing: 0.4em;   
+            color: var(--texto-suporte);   
+            font-weight: 500;   
+            margin-bottom: 1rem;   
+        }   
+   
+        .hero-titulo {   
+            font-size: calc(2.4rem + 2vw);   
+            font-weight: 500;   
+            line-height: 1.15;   
+            margin-bottom: 0px;   
+            color: var(--texto-claro);   
+        }   
+   
+        .hero-formacao {
+            font-size: 1.25rem; 
+            color: var(--texto-suporte);
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-top: 0.8rem; 
+            margin-bottom: 2.2rem;
+        }
+   
+        .hero-bio {   
+            color: var(--texto-mutado);   
+            font-size: 1.05rem;   
+            max-width: 620px;   
+            border-left: 2px solid var(--vinho-detalhe);   
+            padding-left: 1.5rem;   
+            font-weight: 300;   
+        }   
+   
+        .btn-cinema {   
+            background-color: transparent;   
+            color: var(--texto-claro);   
+            border: 1px solid var(--vinho-detalhe);   
+            padding: 0.9rem 2.4rem;   
+            border-radius: 0;   
+            font-size: 0.8rem;   
+            letter-spacing: 0.2em;   
+            text-transform: uppercase;   
+            transition: all 0.3s ease;   
+        }   
+        .btn-cinema:hover {   
+            background-color: var(--vinho-hover);   
+            border-color: var(--texto-claro);   
+            transform: scale(0.98);   
+        }   
+   
+        .titulo-secao {   
+            font-size: 2.0rem;   
+            margin-bottom: 3.5rem;   
+            position: relative;   
+            font-weight: 500;   
+            text-transform: lowercase;   
+            letter-spacing: 1px;   
+            color: var(--texto-claro);   
+        }   
+        .titulo-secao::before {   
+            content: "// ";   
+            color: var(--vinho-detalhe);   
+        }   
+   
+        .card-projeto {   
+            background-color: var(--vinho-card);   
+            border: 1px solid rgba(83, 18, 44, 0.2);   
+            border-radius: 0;   
+            height: 100%;   
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);   
+            overflow: hidden;   
+        }   
+        .card-projeto:hover {   
+            transform: translateY(-5px);   
+            border-color: rgba(241, 245, 249, 0.4);   
+        }   
+   
+        .img-capa-projeto {
+            width: 100%;
+            height: 240px;
+            object-fit: cover; 
+            transition: transform 0.5s ease;
+            filter: grayscale(15%) brightness(85%); 
+        }
+   
+        .card-projeto:hover .img-capa-projeto {
+            transform: scale(1.03); 
+            filter: grayscale(0%) brightness(100%);
+        }
+   
+        .corpo-card-custom { padding: 1.8rem; position: relative; }   
+   
+        .badge-cinema {   
+            background-color: transparent !important;   
+            color: var(--texto-claro) !important;   
+            font-weight: 400;   
+            border-radius: 0;   
+            padding: 0.3rem 0.6rem;   
+            font-size: 0.65rem;   
+            text-transform: uppercase;   
+            letter-spacing: 0.05em;   
+            border: 1px solid rgba(241, 245, 249, 0.3);   
+        }   
+   
+        .ano-projeto {   
+            font-size: 0.85rem;   
+            color: var(--texto-claro);   
+            opacity: 0.8;   
+            font-weight: 500;   
+        }   
+   
+        .nome-projeto {   
+            font-size: 1.35rem;   
+            margin: 0.8rem 0;   
+            font-weight: 500;   
+            color: var(--texto-claro) !important;   
+            letter-spacing: 0.5px;   
+        }   
+            
+        .info-projeto {   
+            color: var(--texto-mutado);   
+            font-size: 0.88rem;   
+            line-height: 1.6;   
+            font-weight: 300;   
+        }   
+   
+        .link-projeto-card {
+            text-decoration: none;
+            display: block;
+            height: 100%;
+        }
+   
+        #sobre { background-color: var(--vinho-marinho); position: relative; }   
+   
+        /* Ajuste na foto de perfil */
+        .sobre-foto-container {
+            width: 100%;
+            height: auto;
+            max-width: 320px; 
+            margin: 0 auto;
+            overflow: hidden;
+            border: 1px solid rgba(241, 245, 249, 0.15);
+            position: relative;
+        }
+   
+        .sobre-foto-perfil {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            filter: grayscale(20%) brightness(90%) contrast(105%);
+            transition: all 0.5s ease;
+        }
+   
+        .sobre-foto-container:hover .sobre-foto-perfil {
+            filter: grayscale(0%) brightness(100%) contrast(100%);
+        }
+   
+        .texto-contato-bio {   
+            color: var(--texto-contato-legivel);   
+            font-size: 0.95rem;   
+            font-weight: 300;   
+            line-height: 1.6;   
+        }   
+   
+        .bloco-contato {   
+            display: flex;   
+            align-items: center;   
+            background-color: var(--vinho-card);   
+            border: 1px solid rgba(83, 18, 44, 0.2);   
+            padding: 1.5rem;   
+            color: var(--texto-claro);   
+            text-decoration: none;   
+            transition: all 0.3s ease;   
+        }   
+        .bloco-contato:hover {   
+            border-color: var(--texto-claro);   
+            background-color: var(--vinho-hover);   
+            color: var(--texto-claro);   
+        }   
+   
+        .bloco-contato i { font-size: 1.3rem; color: var(--texto-mutado); margin-right: 1.2rem; }   
+        .contato-meta { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--texto-suporte); }   
+        .contato-dado { font-size: 0.9rem; font-weight: 400; color: var(--texto-claro); }   
+   
+        footer {   
+            border-top: 1px solid rgba(83, 18, 44, 0.2);   
+            padding: 3rem 0;   
+            font-size: 0.75rem;   
+            color: var(--texto-suporte);   
+            letter-spacing: 1px;   
+        }   
+    </style>   
+</head>
+<body>
+   
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">   
+    <div class="container">   
+        <a class="navbar-brand" href="#hero">DANIELA SIMON</a>   
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">   
+            <i class="bi bi-filter-left text-white fs-2"></i>   
+        </button>   
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">   
+            <ul class="navbar-nav">   
+                <li class="nav-item"><a class="nav-link" href="#hero">início</a></li>   
+                <li class="nav-item"><a class="nav-link" href="#projetos">trabalhos</a></li>   
+                <li class="nav-item"><a class="nav-link" href="#sobre">sobre</a></li>   
+                <li class="nav-item"><a class="nav-link" href="#contato">contato</a></li>   
+            </ul>   
+        </div>   
+    </div>   
+</nav>   
+    
+<section id="hero">   
+    <div class="container">   
+        <div class="row">   
+            <div class="col-lg-9 col-xl-8">   
+                <div class="hero-subtitulo animar">Fotografia & Cinema</div>   
+                <h1 class="hero-titulo animar atraso-1">Daniela Fernandes<br>de Araujo Simon</h1>   
+                <div class="hero-formacao animar atraso-1">Cinema & Audiovisual | ESPM</div>   
+                <p class="hero-bio animar atraso-2">   
+                  Através da direção, arte e fotografia, busco traduzir a psicologia das interações humanas e o ritmo da vida real. Meu trabalho une enquadramentos rigorosos e minimalismo para revelar a poesia do comum.
+                </p>   
+                <div class="mt-5 animar atraso-2">   
+                    <a href="#projetos" class="btn btn-cinema">Abrir Portfólio</a>   
+                </div>   
+            </div>   
+        </div>   
+    </div>   
+</section>   
+    
+<section id="projetos" class="py-5">   
+    <div class="container py-5">   
+        <div class="row">   
+            <div class="col-12">   
+                <h2 class="titulo-secao">Obras</h2>   
+            </div>   
+        </div>   
+               
+        <div class="row g-4">   
+            <div class="col-12 col-md-6 col-lg-4">   
+                <a href="https://youtu.be/ZPDHn-I3OPE" target="_blank" class="link-projeto-card">
+                    <div class="card card-projeto">   
+                        <img src="Sonder.jpeg" alt="Capa Sonder" class="img-capa-projeto">   
+                        
+                        <div class="corpo-card-custom">   
+                            <div class="d-flex justify-content-between align-items-center mb-2">   
+                                <span class="badge badge-cinema">Mini-documentário</span>   
+                                <span class="ano-projeto">2026</span>   
+                            </div>   
+                            <h3 class="nome-projeto">Sonder</h3>   
+                            <p class="info-projeto">   
+                                Mini-documentário observatório sobre as pessoas e a beleza escondida no dia a dia. Uma imersão poética nos caminhos e rotinas urbanas anônimas.   
+                            </p>   
+                        </div>   
+                    </div>   
+                </a>
+            </div>   
+   
+            <div class="col-12 col-md-6 col-lg-4">   
+                <a href="https://vimeo.com/1190837332?share=copy&fl=sv&fe=ci" target="_blank" class="link-projeto-card">
+                    <div class="card card-projeto">   
+                        <img src="Bags.jpeg" alt="Capa Bags" class="img-capa-projeto">   
+                        
+                        <div class="corpo-card-custom">   
+                            <div class="d-flex justify-content-between align-items-center mb-2">   
+                                <span class="badge badge-cinema">Videoclipe</span>   
+                                <span class="ano-projeto">2026</span>   
+                            </div>   
+                            <h3 class="nome-projeto">Bags</h3>   
+                            <p class="info-projeto">   
+                             Videoclipe baseado na música Bags, composta pela cantora norte-americana Clairo. Explora a vunerabilidade e as incertezas de uma amizade homoafetiva muito confusa. Trabalho focado na estética intimista, nuances sutis de luz e ritmo cadenciado.   
+                            </p>   
+                        </div>   
+                    </div>   
+                </a>
+            </div>   
+   
+            <div class="col-12 col-md-12 col-lg-4">   
+                <a href="https://instagram.com/throughdaniislenses" target="_blank" class="link-projeto-card">
+                    <div class="card card-projeto">   
+                        <img src="Tucano.jpeg" alt="Capa Point of View" class="img-capa-projeto">   
+                        
+                        <div class="corpo-card-custom">   
+                            <div class="d-flex justify-content-between align-items-center mb-2">   
+                                <span class="badge badge-cinema">Fotografia</span>   
+                                <span class="ano-projeto">2023-2026</span>   
+                            </div>   
+                            <h3 class="nome-projeto">Delicate point of view</h3>   
+                            <p class="info-projeto">   
+                                Conjunto de fotos que tirei por aí. Um ensaio documental analógico e digital contínuo capturando a poesia silenciosa de espaços comuns e instantes efêmeros.   
+                            </p>   
+                        </div>   
+                    </div>   
+                </a>
+            </div>   
+        </div>   
+    </div>   
+</section>   
+    
+<section id="sobre" class="py-5">   
+    <div class="container py-5">   
+        <div class="row align-items-stretch g-5">   
+            
+            <div class="col-md-5">   
+                <div class="sobre-foto-container">   
+                    <img src="Dani.jpeg" alt="Daniela Simon" class="sobre-foto-perfil">   
+                </div>   
+            </div>   
+            
+            <div class="col-md-7">   
+                <h2 class="titulo-secao">Sobre mim</h2>     
+                <p class="mb-4" style="font-size: 1.2rem; line-height: 1.5; font-weight: 300; color: var(--texto-mutado);">   
+                    Estudante de Cinema e Audiovisual na ESPM, movida pela paixão artística de observar o mundo com calma e precisão, capturando os detalhes que normalmente passariam despercebidos. Com foco em direção de arte, roteiro e fotografia, meu trabalho investiga as interações humanas e o ritmo imperfeito do cotidiano.
+                    
+                   Busco inspiração no minimalismo estético, na delicadeza da luz natural e na força da música para ditar narrativas. Ao combinar enquadramentos rigorosos e composições criativas, meu objetivo é extrair poesia do comum e traduzir a complexidade da mente humana em imagens reflexivas.
+                </p>   
+                <p class="small text-secondary" style="font-family: monospace; letter-spacing: 1px;">   
+                    [ CINEMA INDEPENDENTE / FOTOGRAFIA ]   
+                </p>   
+            </div>   
+            
+        </div>   
+    </div>   
+</section>   
+    
+<section id="contato" class="py-5">   
+    <div class="container py-5">   
+        <div class="row justify-content-center text-center mb-5">   
+            <div class="col-md-7">   
+                <h2 class="titulo-secao d-inline-block">Produções & parcerias</h2>   
+                <p class="texto-contato-bio mt-2">Para novos projetos cinematográficos, ensaios conceituais ou direções artísticas, entre em contato através das redes oficiais.</p>   
+            </div>   
+        </div>   
+               
+        <div class="row g-3 justify-content-center">   
+            <div class="col-12 col-sm-6 col-md-5 col-lg-4">   
+                <a href="mailto:danielaasimon@gmail.com" class="bloco-contato">   
+                    <i class="bi bi-envelope-open"></i>   
+                    <div>   
+                        <div class="contato-meta">Canal Direto</div>   
+                        <div class="contato-dado">danielaasimon@gmail.com</div>   
+                    </div>   
+                </a>   
+            </div>   
+            <div class="col-12 col-sm-6 col-md-5 col-lg-4">   
+                <a href="https://instagram.com/throughdaniislenses" target="_blank" class="bloco-contato">   
+                    <i class="bi bi-camera"></i>   
+                    <div>   
+                        <div class="contato-meta">Mídia Visual</div>   
+                        <div class="contato-dado">@throughdaniislenses</div>   
+                    </div>   
+                </a>   
+            </div>   
+        </div>   
+    </div>   
+</section>   
+    
+<footer class="text-center">   
+    <div class="container">   
+        <p class="mb-1" style="font-family: monospace; font-size: 0.7rem;">&copy; 2026 DANIELA SIMON. ALL RIGHTS RESERVED.</p>   
+    </div>   
+</footer>   
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>   
+</body>
+</html>
